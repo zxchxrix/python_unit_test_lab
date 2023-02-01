@@ -1,5 +1,6 @@
 import requests
 
+
 def main():
     question = input('Enter your question for the magic 8 ball: ')
     magic_8_ball_url = generate_url_for_question(question)
@@ -37,9 +38,16 @@ def extract_answer_from_response(response):
 
     # TODO what would happen if the response dictionary was not in the expected form?
     # TODO can you modify this function to print an error message, and return None
-    #   if the response dictionary is not in this structure? 
-    answer = response['answer']
-    return answer
+    #   if the response dictionary is not in this structure?
+
+    # try and except to handle error in response.
+    # prints message and returns None
+    try:
+        answer = response['answer']
+        return answer
+    except Exception as e:
+        print(f'These has been an error with the response: {e}')
+        return None
 
 
 if __name__ == '__main__':

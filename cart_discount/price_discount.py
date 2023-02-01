@@ -5,12 +5,18 @@ def main():
     
 
 def discount(item_prices):
-    """ Complete this function that returns the discount earned for a list of item prices
-    If a customer has ordered more than three items, the cheapest item is free.
-    Example: if this function is called with a list of [10, 4, 20] then return 4.
-    """
+    amount = len(item_prices)
+    if amount == 0:
+        return 'Enter one or more dollar values'
+    elif amount < 3:
+        return f'You\ve only bought {amount} item(s), so you are not eligible for a discount'
+    elif amount >= 3:
+        cheapest = item_prices[0]
+        for item in item_prices:
+            if item < cheapest:
+                cheapest = item
 
-    pass  # todo replace this line with your code 
+        return cheapest
 
 
 if __name__ == '__main__':
